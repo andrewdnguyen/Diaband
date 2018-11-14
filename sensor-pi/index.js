@@ -10,11 +10,11 @@ const index = require("./routes/index");
 let addon = require('./build/Release/integer');
 
 //Create Socket.io server
-const server = http.createServer(app);
-const io = socketIo(server);
-
 const app = express();
 app.use(index);
+
+const server = http.createServer(app);
+const io = socketIo(server);
 
 //Buffer variables
 let nrOne = new Buffer("1");
