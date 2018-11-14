@@ -18,6 +18,8 @@
   "homepage": "https://github.com/Andrefei/Diaband#readme",
   "dependencies": {
     "express": "^4.16.4",
+    "nan": "^2.11.1",
+    "node-gyp": "^3.8.0",
     "socket.io": "^2.1.1"
   }
 }
