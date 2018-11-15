@@ -1,5 +1,7 @@
 #include <stdlib.h>
 #include <nfc/nfc.h>
+//Example from:
+//http://nfc-tools.org/index.php/Libnfc:quick_start_example
 static void
 print_hex(const uint8_t *pbtData, const size_t szBytes)
 {
