@@ -13,7 +13,7 @@ import CardAvatar from "components/Card/CardAvatar.jsx";
 import CardBody from "components/Card/CardBody.jsx";
 import CardFooter from "components/Card/CardFooter.jsx";
 
-import avatar from "assets/img/faces/marc.jpg";
+import avatar from "assets/img/faces/nadir.jpg";
 
 const styles = {
   cardCategoryWhite: {
@@ -42,14 +42,14 @@ function UserProfile(props) {
         <GridItem xs={12} sm={12} md={8}>
           <Card>
             <CardHeader color="primary">
-              <h4 className={classes.cardTitleWhite}>Edit Profile</h4>
+              <h4 className={classes.cardTitleWhite}>Change Profile</h4>
               <p className={classes.cardCategoryWhite}>Complete your profile</p>
             </CardHeader>
             <CardBody>
               <GridContainer>
                 <GridItem xs={12} sm={12} md={5}>
                   <CustomInput
-                    labelText="Company (disabled)"
+                    labelText="Company (enabled)"
                     id="company-disabled"
                     formControlProps={{
                       fullWidth: true
@@ -157,12 +157,13 @@ function UserProfile(props) {
               </a>
             </CardAvatar>
             <CardBody profile>
-              <h6 className={classes.cardCategory}>CEO / CO-FOUNDER</h6>
-              <h4 className={classes.cardTitle}>Alec Thompson</h4>
+              <h6 className={classes.cardCategory}>PROFESSOR/FACULTY</h6>
+              <h4 className={classes.cardTitle}>Nadir Weibel</h4>
               <p className={classes.description}>
-                Don't be scared of the truth because we need to restart the
-                human foundation in truth And I love you like Kanye loves Kanye
-                I love Rick Owens’ bed design but the back is...
+
+                I am an Associate Research Professor in the Department of Computer Science and Engineering at UC San Diego,
+                and a Research Health Science Specialist at the VA San Diego Health System. My work on Human-Centered
+                Computing is situated at the intersection of computer science, cognitive science and the health sciences. I am a computer scientist who investigates tools, techniques and infrastructure supporting the deployment of innovative interactive multimodal and tangible devices in context, and an ethnographer using novel methods for studying and quantifying the cognitive consequences of the introduction of this technology in the everyday life.
               </p>
               <Button color="primary" round>
                 Follow
