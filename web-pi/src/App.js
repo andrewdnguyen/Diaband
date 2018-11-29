@@ -11,7 +11,7 @@ import {
 } from "variables/charts.jsx";
 
 let stat1 = dailySalesChart.data.series[0][(dailySalesChart.data.series[0].length-1)]
-let stat2 = dailySalesChart.data.series[0][(dailySalesChart.data.series[0].length-5)] //check trend over past hour
+let stat2 = dailySalesChart.data.series[0][(dailySalesChart.data.series[0].length-4)] //check trend over past hour
 let trend; //-1 if negative, 1 if positive, 0 if stable
 if(stat1 === stat2){
   trend = 0;
@@ -56,6 +56,36 @@ while(j < dailySalesChart.data.series[0].length){
   }
   j++;
 }
+
+let adjective = "looking good at the moment, keep it up! Here's your reward:"
+let tip1;
+let tip2;
+let tip3;
+let tip4;
+let background = {backgroundColor: "#28a745", color:"white"};
+
+let sugarWarning = 0;
+
+if(dailySalesChart.data.series[0][(dailySalesChart.data.series[0].length-1)] > 180){
+  sugarWarning = 1;
+  adjective = "higher than it should be, make sure that you have regularly administered insulin! Here are some ways to naturally bring it down:"
+  tip1 = "1) Make sure to exercise regularly.";
+  tip2 = "2) Watch your carbohydrate intake.";
+  tip3 = "3) Drink lots of water.";
+  tip4 = "4) Lower your stress levels.";
+  background = {backgroundColor: "#dc3545", color:"white"};
+}
+
+if(dailySalesChart.data.series[0][(dailySalesChart.data.series[0].length-1)] < 70){
+  sugarWarning = -1;
+  adjective = "lower than it should be! Here is what you should do:"
+  tip1 = "1) Check for symptoms such as: Weakness and/or fatigue, headache, sweating, anxiety, dizziness, shaking, or increased heartbeat";
+  tip2 = "2) If your latest reading is lower than 70 eat 15 to 30 grams of carbohydrates (E.g about one small fruit or 1/2 a cup of juice)";
+  tip3 = "3) If it remains low after 15 minutes (at the next reading) eat another 15 grams of carbohydrates.";
+  tip4 = "4) Your blood sugar levels may have dropped due to: skipping a meal, taking too much insulin or eating too few carbohydrates, or recently exercising.";
+  background = {backgroundColor: "#ffc107"};
+}
+
 
 
 
@@ -126,7 +156,9 @@ class App extends Component {
           </div>
         </div>
 
-        <div class="card" style={{width: "50%"}}>
+
+
+        <div class="card" style={{width: "50%", height: "100%"}}>
         <br/>
          <h1>{dailySalesChart.data.replacement}</h1>
          <div class="card-body">
@@ -136,6 +168,18 @@ class App extends Component {
        </div>
 
        </div>
+
+               <br/>
+
+       <div class="jumbotron" style={background}>
+           <h1 class="display-4"> Tips for Regulating Your Blood Sugar </h1>
+           <p class="lead">Your current blood reading is {adjective}</p>
+             {sugarWarning === 0 ? <img src={require("./assets/img/cute-cat.jpg")} style={{maxHeight: 250}} alt="" className="img-responsive" /> : ""}
+             <p>{tip1} </p>
+             <p>{tip2}</p>
+             <p>{tip3}</p>
+             <p>{tip4}</p>
+      </div>
 
       </div>
     );
