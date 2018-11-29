@@ -1,6 +1,13 @@
 import React, { Component } from "react";
 import socketIOClient from "socket.io-client";
 
+// react plugin for creating charts
+import ChartistGraph from "react-chartist";
+
+import {
+  dailySalesChart
+} from "variables/charts.jsx";
+
 class App extends Component {
   constructor() {
     super();
@@ -25,6 +32,13 @@ class App extends Component {
               Our data is {response} °F
             </p>
           : <p>Loading...</p>}
+          <ChartistGraph
+            className="ct-chart"
+            data={dailySalesChart.data}
+            type="Line"
+            options={dailySalesChart.options}
+            listener={dailySalesChart.animation}
+         />
       </div>
     );
   }
