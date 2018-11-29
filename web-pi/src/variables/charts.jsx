@@ -5,8 +5,6 @@ var Chartist = require("chartist");
 // #############################
 var delays = 80,
   durations = 500;
-var delays2 = 80,
-  durations2 = 500;
 
 // ##############################
 // // // Daily Sales
@@ -14,14 +12,15 @@ var delays2 = 80,
 
 const dailySalesChart = {
   data: {
-    series: [[0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65]]
+    series: [[87, 91, 114, 125, 100, 140, 55, 100, 110, 98, 140, 150, 160, 90, 87, 91, 114, 125, 100, 140, 150, 100, 110, 98, 140, 150, 160, 90, 87, 91, 114, 125, 100, 140, 150, 100, 110, 230, 140, 150, 160, 90]],
+    replacement: 4
   },
   options: {
     lineSmooth: Chartist.Interpolation.cardinal({
       tension: 0
     }),
-    low: 0,
-    high: 100, // creative tim: we recommend you to set the high sa the biggest value + something for a better look
+    low: 50,
+    high: 250, // creative tim: we recommend you to set the high sa the biggest value + something for a better look
     chartPadding: {
       top: 0,
       right: 0,
