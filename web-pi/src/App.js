@@ -8,7 +8,7 @@ import ChartistGraph from "react-chartist";
 
 import {
   dailySalesChart
-} from "variables/charts.jsx";
+} from "./variables/charts.jsx";
 
 let stat1 = dailySalesChart.data.series[0][(dailySalesChart.data.series[0].length-1)]
 let stat2 = dailySalesChart.data.series[0][(dailySalesChart.data.series[0].length-4)] //check trend over past hour
