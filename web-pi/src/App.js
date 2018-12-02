@@ -106,15 +106,15 @@ class App extends Component {
 
   testFunction(trend){
       if (trend === 0){
-        return "been stable."
+        return "Stable"
       }
 
       else if (trend === 1){
-        return "gone up."
+        return "Sugar Level Increase"
       }
 
       else{
-        return "gone down."
+        return "Sugar Level Decrease"
       }
   }
 
@@ -169,10 +169,58 @@ class App extends Component {
 
        </div>
 
+       <div class="row">
+
+           <div class="card" style={{width: "50%"}}>
+           <br/>
+            <h1>{parseInt(mean)}</h1>
+            <div class="card-body">
+              <h5 class="card-title">Average Reading</h5>
+              { (dailySalesChart.data.series[0][(dailySalesChart.data.series[0].length-1)] > 180) || (dailySalesChart.data.series[0][(dailySalesChart.data.series[0].length-1)] < 70)  ? <p class="card-text text-danger">Warning: Blood sugar outside of normal levels!</p> : <p class="card-text text-success">Blood sugar is normal! Please remember to check regularly!</p>}
+            </div>
+          </div>
+
+
+
+          <div class="card" style={{width: "50%"}}>
+          <br/>
+           <h1>{difference}</h1>
+           <div class="card-body">
+             <h5 class="card-title">Biggest Change</h5>
+             { (dailySalesChart.data.replacement > 5)  ? <p class="card-text text-success">You won't need to worry about replacing your sensor anytime soon!</p> : <p class="card-text text-danger">Sensor is nearing expiration date, be sure to replace it soon!</p>}
+           </div>
+         </div>
+
+         </div>
+
+         <div class="row">
+
+             <div class="card" style={{width: "50%"}}>
+             <br/>
+              <h1>{this.testFunction(trend)}</h1>
+              <div class="card-body">
+                <h5 class="card-title">Change in the Last Hour</h5>
+                { (dailySalesChart.data.series[0][(dailySalesChart.data.series[0].length-1)] > 180) || (dailySalesChart.data.series[0][(dailySalesChart.data.series[0].length-1)] < 70)  ? <p class="card-text text-danger">Warning: Blood sugar outside of normal levels!</p> : <p class="card-text text-success">Blood sugar is normal! Please remember to check regularly!</p>}
+              </div>
+            </div>
+
+
+
+            <div class="card" style={{width: "50%"}}>
+            <br/>
+             <h1>[{low}, {high}]</h1>
+             <div class="card-body">
+               <h5 class="card-title">Highest and Lowest Reading in Last 8 Hours</h5>
+               { (dailySalesChart.data.replacement > 5)  ? <p class="card-text text-success">You won't need to worry about replacing your sensor anytime soon!</p> : <p class="card-text text-danger">Sensor is nearing expiration date, be sure to replace it soon!</p>}
+             </div>
+           </div>
+
+           </div>
+
                <br/>
 
        <div class="jumbotron" style={background}>
-           <h1 class="display-4"> Tips for Regulating Your Blood Sugar </h1>
+           <h1 class="display-4"> Recommendations</h1>
            <p class="lead">Your current blood reading is {adjective}</p>
              {sugarWarning === 0 ? <img src={require("./assets/img/cute-cat.jpg")} style={{maxHeight: 250}} alt="" className="img-responsive" /> : ""}
              <p>{tip1} </p>
