@@ -120,13 +120,10 @@ class App extends Component {
 
   render() {
     const { response } = this.state;
+    console.log(JSON.stringify(response));
+    let res = {response};
     return (
       <div style={{ textAlign: "center" }}>
-        {response
-          ? <p>
-              Our data is {response} °F
-            </p>
-          : <p>Loading... (This is a demo. Our app is not yet taking in real data.)</p>}
 
           <div class="jumbotron" style={{backgroundColor: "#563d7c", color:"white"}}>
               <h1 class="display-4"> Your Diabetes Report </h1>
@@ -140,7 +137,7 @@ class App extends Component {
                 data={dailySalesChart.data}
                 type="Line"
                 options={dailySalesChart.options}
-                listener={dailySalesChart.animation}
+                
              />
 
          </div>
