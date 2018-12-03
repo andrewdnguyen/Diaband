@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import socketIOClient from "socket.io-client";
 
 import "bootstrap/dist/css/bootstrap.css";
+import firebase from "firebase"
 
 // react plugin for creating charts
 import ChartistGraph from "react-chartist";
@@ -9,6 +10,15 @@ import ChartistGraph from "react-chartist";
 import {
   dailySalesChart
 } from "./variables/charts.jsx";
+
+var config = {
+  apiKey: "AIzaSyC2h9JcfucVwd12Ud4ejL7pQj6eeC37J-8",
+  authDomain: "diaband-78956.firebaseapp.com",
+  databaseURL: "https://diaband-78956.firebaseio.com",
+  projectId: "diaband-78956",
+  storageBucket: "diaband-78956.appspot.com",
+  messagingSenderId: "105285075120"
+};
 
 let stat1 = dailySalesChart.data.series[0][(dailySalesChart.data.series[0].length-1)]
 let stat2 = dailySalesChart.data.series[0][(dailySalesChart.data.series[0].length-4)] //check trend over past hour
@@ -92,7 +102,12 @@ if(dailySalesChart.data.series[0][(dailySalesChart.data.series[0].length-1)] < 7
 class App extends Component {
   constructor() {
     super();
+
+    this.app = firebase.initializeApp(config);
+    this.database = this.app.database().ref().child('value')
+
     this.state = {
+      value: 0,
       response: false,
       endpoint: "http://127.0.0.1:4001"
     };
@@ -102,6 +117,11 @@ class App extends Component {
     const { endpoint } = this.state;
     const socket = socketIOClient(endpoint);
     socket.on("FromAPI", data => this.setState({ response: data }));
+    this.database.on('value', snap => {
+      this.setState({
+        value: snap.val()
+      });
+    });
   }
 
   testFunction(trend){
@@ -129,6 +149,7 @@ class App extends Component {
           : <p>Loading... (This is a demo. Our app is not yet taking in real data.)</p>}
 
           <div class="jumbotron" style={{backgroundColor: "#563d7c", color:"white"}}>
+              <h1 class="display-4"> Firebase Test Value: {this.state.value} </h1>
               <h1 class="display-4"> Your Diabetes Report </h1>
               <p class="lead">A chart displaying the latest readings from your FreeLibre sensor. Here are some interesting tidbits:</p>
                 <p>- Since the last hour, overall your blood sugar has { this.testFunction(trend) } (4 readings are done per hour)</p>
