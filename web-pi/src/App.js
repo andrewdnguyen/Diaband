@@ -236,19 +236,14 @@ updateEvent = e => {
 
 addData = e => {
   e.preventDefault();
-  console.log(this.state.event);
-  if(this.state.event === ""){
-    this.setState({event: "Food"});
-  }
-  console.log(this.state.event);
   let testObject = {time: this.state.time, event: this.state.event, reading: this.state.reading, info: this.state.info};
   this.state.infoArray.push(testObject);
   let toSend = {infoArray:this.state.infoArray};
-  console.log(testObject.event);
+  console.log(testObject);
   this.database.set(toSend);
   this.setState({
     time: "",
-    event: "",
+    event: "Food",
     info: "",
     reading: ""
   });
