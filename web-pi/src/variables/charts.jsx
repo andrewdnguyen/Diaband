@@ -11,16 +11,12 @@ var delays = 80,
 // #############################
 
 const dailySalesChart = {
-  data: {
-    series: [[87, 91, 114, 125, 100, 140, 55, 100, 110, 98, 140, 150, 100, 110, 98, 140, 150, 160, 90, 87, 91, 114, 125, 100, 140, 150, 100, 110, 230, 90, 150, 160, 114]],
-    replacement: 6
-  },
   options: {
     lineSmooth: Chartist.Interpolation.cardinal({
       tension: 0
     }),
-    low: 50,
-    high: 250, // creative tim: we recommend you to set the high sa the biggest value + something for a better look
+    low: 0,
+    high: 260, // creative tim: we recommend you to set the high sa the biggest value + something for a better look
     chartPadding: {
       top: 0,
       right: 0,

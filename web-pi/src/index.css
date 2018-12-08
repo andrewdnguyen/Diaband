@@ -13,6 +13,15 @@ code {
     monospace;
 }
 
+.ct-grid.ct-vertical:nth-of-type(14){
+  stroke-width: 3;
+  stroke: red;
+}
+.ct-grid.ct-vertical:nth-of-type(12) {
+  stroke-width: 3;
+  stroke: yellow;
+}
+
 .ct-series-a .ct-line,
 .ct-series-a .ct-point {
   stroke: white;
