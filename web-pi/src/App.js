@@ -35,7 +35,7 @@ class App extends Component {
       time: "",
       info: "",
       infoArray:[],
-      response: [87, 91, 114, 125, 100, 140, 55, 100, 110, 98, 140, 150, 100, 110, 98, 140, 10, 160, 90, 87, 91, 114, 125, 100, 140, 150, 100, 110, 230, 90, 70, 180, 200],
+      response: [87, 91, 114, 125, 100, 140, 55, null, 110, 98, 140, 150, null, 110, 98, null, 10, 160, 90, 87, 91, 114, 125, 100, 140, 150, 100, 110, 230, 90, 70, 180, 200],
       endpoint: "http://127.0.0.1:4001"
     };
   }
@@ -283,6 +283,13 @@ removeInfo = e => {
 
     graphData.data.series[0] = data;
     let variables = graphData.data.series[0];
+    let increment = 0;
+    while(increment < variables.length){
+      if(!Number.isInteger(variables[increment])){
+        variables[increment] = Math.floor(Math.random() * 256);;
+      }
+      increment++;
+    }
 
     let iArr = this.state.infoArray;
 
