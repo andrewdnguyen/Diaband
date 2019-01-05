@@ -11,13 +11,14 @@ import {
   dailySalesChart
 } from "./variables/charts.jsx";
 
+//Firebase API setup required
 var config = {
-  apiKey: "AIzaSyC2h9JcfucVwd12Ud4ejL7pQj6eeC37J-8",
-  authDomain: "diaband-78956.firebaseapp.com",
-  databaseURL: "https://diaband-78956.firebaseio.com",
-  projectId: "diaband-78956",
-  storageBucket: "diaband-78956.appspot.com",
-  messagingSenderId: "105285075120"
+  apiKey: "xxxxxxxxxxxxxxxxxxxxx",
+  authDomain: "xxxxxxxxxxxxxxxxxxxxxx",
+  databaseURL: "xxxxxxxxxxxxxxxxxxxxxx",
+  projectId: "xxxxxxxxxxxxxxxxxxxxxxxxx",
+  storageBucket: "xxxxxxxxxxxxxxxxxxxxx",
+  messagingSenderId: "xxxxxxxxxxx"
 };
 
 class App extends Component {
