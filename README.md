@@ -14,6 +14,10 @@ The first step for both devices is to download and install both node and npm fro
 
 Next, navigate to the `sensor-pi` folder on the Raspberry Pi and open up the terminal. Then type `npm install` followed by `npm start`. The Pi is now done!
 
+Before setting up the `web-pi`, a firebase database must first be set up in order for event logging to work. You can create a firebase database through the Firebase console website and the database should look like the image below, but with just the 0th object and its example elements:
+
+![Image of Firebase Database](example.PNG)
+
 Now for the last part, start up the other device and navigate to the `web-pi` folder and open up the terminal or commandline. Then similarily to the Pi, run the command `npm install` followed by `npm start`. Before you start, make sure that the `endpoint` in `web-pi/src/app.js` is the IP address belonging to the Raspberry, if you are running both apps on the same device the `endpoint` should point to localhost.
 
 And that's it! When you accsess the React App running on your second device you should see whatever data is picked up by the nfc nodule on the Raspberry Pi.
